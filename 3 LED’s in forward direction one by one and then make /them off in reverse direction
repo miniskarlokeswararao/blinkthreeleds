@@ -1,0 +1,44 @@
+// C++ code
+//Glow 3 LED’s in forward direction one by one and then make
+//them off in reverse direction respectively?
+int led[] = {11, 12, 13};
+
+void setup() {
+  Serial.begin(9600);
+  for (int i = 0; i <= 2; i++) {
+    pinMode(led[i], OUTPUT);
+  }
+}
+
+void loop() {
+  cycle();
+}
+
+void forward() {
+  Serial.println("\n forward direction ");
+  for (int i = 0; i <= 2; i++) {
+    Serial.println(led[i]);
+    digitalWrite(led[i], HIGH);  // Turn LED on
+    delay(1000);
+    //digitalWrite(led[i], LOW);   // Turn LED off
+    
+}
+}
+void reverse() {
+  Serial.println("\n reverse direction ");
+  
+  for (int i = 2; i >= 0; i--) {
+    Serial.println(led[i]);
+    digitalWrite(led[i], LOW);   // Turn LED off
+    delay(1000);
+    //digitalWrite(led[i], HIGH);  // Turn LED on
+    
+  }
+}
+
+void cycle() {
+  forward();
+  delay(2000);
+  reverse();
+ 
+}
